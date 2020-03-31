@@ -91,7 +91,7 @@ function social_mentions_tokens($type, $tokens, array $data, array $options, Bub
                 ->getStorage($target_type)
                 ->load($target_id);
 
-              if ($mention->getEntityTypeId() == 'mentions') {
+              if (isset($mention) && ($mention->getEntityTypeId() == 'mentions')) {
                 $loadUserId = User::load($mention->getMentionedUserID());
                 $user = $loadUserId->getDisplayName();
 
